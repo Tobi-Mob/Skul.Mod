@@ -8,7 +8,7 @@ Features
 ===
 
 - TurboButtonMode for basic attacks
-   - Holding down the attack button, attacks as fast as possible
+   - Holding down the attack button attacks as fast as possible
    - Activate/Deactivate with F2/F3 for the primary or secondary equipped skull
 - Skull drops scale with current chapter
    - Later chapters always drop higher rarity skulls
