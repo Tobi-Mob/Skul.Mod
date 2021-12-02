@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net45</TargetFramework>
+    <PackageId>Skul.Mod</PackageId>
+    <Description>Tobi-Mob Skul Mod</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>9.0</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>Harmony003</NoWarn>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <!-- Enter the path to your Skul Installation -->
+    <SkulDirectory>/home/tobi/.steam/debian-installation/steamapps/common/Skul/</SkulDirectory>
+    <!--
+    <SkulDirectory>C:\Program Files\Steam\steamapps\common\Skul\</SkulDirectory>
+    -->
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <OutputPath>$(SkulDirectory)BepInEx/plugins/</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Unity" Version="6.0.0-*" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+	<PackageReference Include="UnityEngine.Modules" Version="2020.1.17" IncludeAssets="compile" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(SkulDirectory)Skul_Data/Managed/Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(SkulDirectory)Skul_Data/Managed/Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="InControl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(SkulDirectory)Skul_Data/Managed/InControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugins.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(SkulDirectory)Skul_Data/Managed/Plugins.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugins.Singletons, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(SkulDirectory)Skul_Data/Managed/Plugins.Singletons.dll</HintPath>
+    </Reference>
+    <Reference Include="Steamworks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(SkulDirectory)Skul_Data/Managed/Steamworks.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
