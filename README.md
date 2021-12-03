@@ -14,6 +14,8 @@ Features
    - Later chapters always drop higher rarity skulls
    - Awakened versions of skulls can drop.
 - Item drops configurable to drop a higher quality item every N drops
+- Always spawn a Skull-Reward and a Item-Reward gate, if possible.
+- No broken gates will be spawned if avoidable.
 - Infinite DarkQuartz to unlock upgrades 
 
 Compability
@@ -69,10 +71,6 @@ If the mod is running correclty, pressing F1 while in the game will display a me
 Future Ideas
 ===
 
-- If possible, try to always spawn a Item and Skull reward gate.
-   - If no skull gates are spawned in a run, it may not be possible to awaken the equipped skulls. This change hopefully negates that.
-   - Gold reward gates may not be necessary if the Item rewards can be destroyed for gold.
-   - Broken gates do not really help and are just bad luck. Removing them should not make anybody sad.
 - Start in a later chapter
    - Skip lower Chapters and jump right into higher action.
    - Give some start equipment matching the new start chapter.

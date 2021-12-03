@@ -13,5 +13,7 @@ namespace Skul.Mod
         public static  FloatingTextSpawner TextSpawner => Singleton<Service>.Instance.floatingTextSpawner;
 
         public static Character Player => (LevelManager != null) ? LevelManager.player : null;
+
+        public static bool IsInGame => Player != null;
     }
 }

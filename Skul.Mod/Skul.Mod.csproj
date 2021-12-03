@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net45</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <PackageId>Skul.Mod</PackageId>
     <Description>Tobi-Mob Skul Mod</Description>
     <Version>1.0.0</Version>

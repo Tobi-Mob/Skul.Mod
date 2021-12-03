@@ -38,21 +38,20 @@ namespace Skul.Mod
             
             _harmony = new Harmony("Skul.Mod");
             _harmony.PatchAll(typeof(DropRatePatch));
+            _harmony.PatchAll(typeof(PathPatch));
         }
         
         private LevelManager levelManager => Singleton<Service>.Instance.levelManager;
-        private FloatingTextSpawner textSpawner => Singleton<Service>.Instance.floatingTextSpawner;
 
         private void Update()
         {
             // Only run, if a player is running around
-            if (levelManager == null ||
-                levelManager.player == null)
+            if (!Helper.IsInGame)
                 return;
 
             if(Input.GetKeyDown(KeyCode.F1))
             {
-                textSpawner.SpawnBuff("Mod running!", levelManager.player.transform.position);
+                Helper.TextSpawner.SpawnBuff("Mod running!", levelManager.player.transform.position);
             }
             
             if (Input.GetKeyDown(KeyCode.F2))
