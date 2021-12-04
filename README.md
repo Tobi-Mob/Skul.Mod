@@ -1,5 +1,7 @@
 # Mod for Skul: The Hero Slayer
 
+Some Modifications to make the game even more enjoyable for me.
+
 Using [BepInEx](https://github.com/BepInEx/BepInEx) as modding framework
 
 ---
@@ -7,16 +9,16 @@ Using [BepInEx](https://github.com/BepInEx/BepInEx) as modding framework
 Features
 ===
 
-- TurboButtonMode for basic attacks
-   - Holding down the attack button attacks as fast as possible
-   - Activate/Deactivate with F2/F3 for the primary or secondary equipped skull
-- Skull drops scale with current chapter
-   - Later chapters always drop higher rarity skulls
+- TurboButtonMode for basic attacks.
+   - Holding down the attack button attacks as fast as possible.
+   - Activate/Deactivate with F2.
+- Skull drops scale with current chapter.
+   - Later chapters always drop higher rarity skulls.
    - Awakened versions of skulls can drop.
-- Item drops configurable to drop a higher quality item every N drops
+- Item drops configurable to drop a higher quality item every N drops.
 - Always spawn a Skull-Reward and a Item-Reward gate, if possible.
-- No broken gates will be spawned if avoidable.
-- Infinite DarkQuartz to unlock upgrades 
+- No broken gates will be spawned, if avoidable.
+- Infinite DarkQuartz to unlock upgrades. 
 
 Compability
 ===
@@ -78,3 +80,5 @@ Future Ideas
    - It should be possible to give a fixed seed to the used System.Random to replay a given seed.
 - Configurable starting gear
 - Configurable drops for a run
+- Boss rush
+   - Is could be enough to postfix `StageInfo.GeneratePath` and just remove all non boss segments.   

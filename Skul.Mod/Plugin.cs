@@ -36,13 +36,17 @@ namespace Skul.Mod
             // Plugin startup logic
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
             
+            // Execute all patches
             _harmony = new Harmony("Skul.Mod");
             _harmony.PatchAll(typeof(DropRatePatch));
             _harmony.PatchAll(typeof(PathPatch));
+            
+            // Active Turbo-Button-Worker
+            TurboButtonMode.StartSetTurboCoroutine(this);
         }
         
         private LevelManager levelManager => Singleton<Service>.Instance.levelManager;
-
+        
         private void Update()
         {
             // Only run, if a player is running around
@@ -53,15 +57,10 @@ namespace Skul.Mod
             {
                 Helper.TextSpawner.SpawnBuff("Mod running!", levelManager.player.transform.position);
             }
-            
+
             if (Input.GetKeyDown(KeyCode.F2))
             {
-                TurboButtonMode.ToggleTurbo(0);
-            }
-
-            if (Input.GetKeyDown(KeyCode.F3))
-            {
-                TurboButtonMode.ToggleTurbo(1);
+                TurboButtonMode.ToggleTurbo();
             }
 
             // Lock Quartz high enough to unlock everything

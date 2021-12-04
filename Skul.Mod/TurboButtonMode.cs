@@ -1,73 +1,94 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Characters.Actions;
 using Services;
 using Singletons;
+using UnityEngine;
 
 namespace Skul.Mod
 {
     public static class TurboButtonMode
     {
-        private static FieldInfo _inputMethodField = typeof(Action).GetField("_inputMethod", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static Coroutine SetTurboCoroutineHandle = null;
         
-        public static void ToggleTurbo(int index)
-        {
-            // find player action for the different skulls.
-            // There is usually one action for each equipped skull.
-            // The first found actions are usually for the currently active skull
-            // The second found actions are usually for the currently inactive skull
-            List<Action> basicAttacks = new List<Action>(2);
-            List<Action> jumpAttacks  = new List<Action>(2);
+        // these are the protected enum values for the input types
+        const int TryStartIsPressed = 0;
+        const int TryStartWasPressed = 1;
+        
+        /// <summary>
+        /// This field controls if an action requires a Button-Press or a Button-Hold 
+        /// </summary>
+        private static readonly FieldInfo _inputMethodField = typeof(Action)
+            .GetField("_inputMethod", BindingFlags.Instance | BindingFlags.NonPublic);
+        
+        /// <summary>
+        /// Indicates if Turbo-Mode is currently active
+        /// </summary>
+        public static bool IsTurboActive { get; private set; }
 
+        /// <summary>
+        /// Toggles Turbo Mode.
+        /// Don't forget to call <see cref="StartSetTurboCoroutine"/> to refresh this setting for new equipped skulls
+        /// </summary>
+        public static void ToggleTurbo()
+        {
+            IsTurboActive = !IsTurboActive;
+            
+            string text = IsTurboActive ? "enabled" : "disabled";
+
+            Helper.TextSpawner.SpawnBuff($"Turbo {text}", Helper.Player.transform.position);
+            
+            // Also update the new state for the current skulls
+            SetTurboOnCurrentSkulls();
+        }
+        
+        /// <summary>
+        /// Sets the configured Turbo-Mode on all currently equipped skulls
+        /// </summary>
+        public static void SetTurboOnCurrentSkulls()
+        {
+            int typeValue = IsTurboActive ? TryStartIsPressed : TryStartWasPressed;
+            
+            // find player action for the different skulls.
+            // There is usually two actions for each equipped skull.
+
+            // we only want to modify the BasicAttack and JumpAttach actions
             foreach (var action in Helper.Player.actions)
             {
                 switch (action.type)
                 {
                     case Action.Type.BasicAttack:
-                        basicAttacks.Add(action);
-                        break;
                     case Action.Type.JumpAttack:
-                        jumpAttacks.Add(action);
+                        _inputMethodField.SetValue(action, typeValue);
                         break;
                 }
             }
+        }
 
-            // these are the protected enum values for the input types
-            const int TryStartIsPressed = 0;
-            const int TryStartWasPressed = 1;
-
-            // check if the turbo is currently active
-            int currentInputMethod = (int)_inputMethodField.GetValue(basicAttacks[index]);
-
-            string text;
-            
-            if (currentInputMethod == TryStartWasPressed)
+        #region Couroutine
+        /// <summary>
+        /// Calls <see cref="SetTurboOnCurrentSkulls"/> regulary
+        /// </summary>
+        public static void StartSetTurboCoroutine(MonoBehaviour anyObject)
+        {
+            if (SetTurboCoroutineHandle == null)
             {
-                // Activate turbo
-                // DoAction while the button is held down
-                text = "enabled";
-                _inputMethodField.SetValue(basicAttacks[index], TryStartIsPressed);
-                _inputMethodField.SetValue(jumpAttacks[index], TryStartIsPressed);
-            }
-            else
-            {
-                // Disable turbo
-                // DoAction if the button is pressed
-                text = "disabled";
-                _inputMethodField.SetValue(basicAttacks[index], TryStartWasPressed);
-                _inputMethodField.SetValue(jumpAttacks[index], TryStartWasPressed);
-            }
-
-            // Display message on screen
-            switch (index)
-            {
-                case 0: Helper.TextSpawner.SpawnBuff($"Turbo {text} for active skull", Helper.Player.transform.position);
-                    break;
-                case 1: Helper.TextSpawner.SpawnBuff($"Turbo {text} for secondary skull", Helper.Player.transform.position);
-                    break;
-                default: Helper.TextSpawner.SpawnBuff($"Turbo {text} for skull {index + 1}", Helper.LevelManager.player.transform.position);
-                    break;
+                Helper.Logger.LogInfo("Turbo-Button coroutine starting");
+                anyObject.StartCoroutine(SetTurboCoroutine());
             }
         }
+
+        private static IEnumerator SetTurboCoroutine()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(1);
+                
+                if(Helper.IsInGame)
+                    SetTurboOnCurrentSkulls();
+            }
+        }
+        #endregion
     }
 }
