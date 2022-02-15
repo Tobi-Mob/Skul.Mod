@@ -55,7 +55,7 @@ namespace Skul.Mod
             if (SkullsScaleWithChapter)
                 rarity = GetChapterRarity();
             
-            Logger.LogInfo($"GetWeaponToTakePrefix for rarity '{rarity}'");
+            Logger.LogInfo("GetWeaponToTakePrefix for rarity " + rarity);
             
             // Get all weapons up to the requested rarity
             IEnumerable<Resource.WeaponReference> possibleDrops = weapons[Rarity.Common];
@@ -87,7 +87,7 @@ namespace Skul.Mod
 
                 while (__result.rarity < rarity)
                 {
-                    Logger.LogInfo($"Rarity to low. Upgrading");
+                    Logger.LogInfo("Rarity to low. Upgrading");
                     
                     // Load the weapon to find out its upgrade.
                     // TODO: possible without the load?
@@ -100,12 +100,12 @@ namespace Skul.Mod
                     }
                     else
                     {
-                        Logger.LogInfo($"Unable to upgrade {__result.name} further. Finding a new weapon");
+                        Logger.LogInfo("Unable to upgrade " + __result.name + " further. Finding a new weapon");
                         return GetWeaponToTakePrefix(ref __result, __instance, random, rarity, ____weapons, ____weaponInstances);
                     }
                 }
                 
-                Logger.LogInfo($"Found weapon: '{__result.name}'");
+                Logger.LogInfo("Found weapon: " + __result.name );
                 return false;
             }
             else
@@ -132,7 +132,7 @@ namespace Skul.Mod
             if (ItemUpgradeEveryXDrops != -1)
             {
                 ++_itemDropCount;
-                Logger.LogInfo($"Item drop Nr. '{_itemDropCount}'");
+                Logger.LogInfo("Item drop Nr. " + _itemDropCount);
 
                 if (_itemDropCount % ItemUpgradeEveryXDrops == 0)
                 {
@@ -155,7 +155,7 @@ namespace Skul.Mod
             }
             
             
-            Logger.LogInfo($"GetItemToTakePrefix for rarity '{rarity}'");
+            Logger.LogInfo("GetItemToTakePrefix for rarity '" + rarity + "'");
 
             var allItems = ____items;
             
@@ -177,7 +177,7 @@ namespace Skul.Mod
             {
                 // get a random entry from the possible drops
                 __result = itemInfos[random.Next(0, itemInfos.Count)];
-                Logger.LogInfo($"Found item: '{__result.name}'");
+                Logger.LogInfo("Found item: " + __result.name );
                 return false;
             }
             else
@@ -258,7 +258,7 @@ namespace Skul.Mod
                     break;
             }
             
-            Logger.LogInfo($"Chapter type '{chapterType}' to rarity '{rarity}'");
+            Logger.LogInfo("Chapter type '" + chapterType + "' to rarity '" + rarity + "'");
 
             return rarity;
         }

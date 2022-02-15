@@ -64,7 +64,7 @@ Long Description: [Guide by ghorsington](https://hackmd.io/@ghorsington/rJuLdZTz
 Short Description:
 - download https://unity.bepinex.dev/libraries/2020.1.17.zip and extract the content into `$(SkulDirectory)\Skul_Data\Managed\`
 - go to the [Unity Download Archives](https://unity3d.com/get-unity/download/archive) and download the Unity Editor Version 2020.1.17 (Linux users should download the Windows Version)
-- open the downloaded exe file with [7-zip](https://www.7-zip.org/) and extract `Editor/Data/MonoBleedingEdge/lib/mono/4.5` into `$(SkulDirectory)\Skul_Data\Managed\` 
+- open the downloaded exe file with [7-zip](https://www.7-zip.org/) and extract `Editor/Data/MonoBleedingEdge/lib/mono/4.5` into `$(SkulDirectory)\Skul_Data\Managed\`. To extract without the 7-Zip GUI: `7z x UnitySetup64-2020.1.17f1.exe` 
 
 ### Run the game
 

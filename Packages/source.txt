@@ -1,0 +1,2 @@
+https://nuget.bepinex.dev/v3/index.json
+Add this to your NuGet Sources

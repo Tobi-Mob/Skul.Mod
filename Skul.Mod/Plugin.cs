@@ -7,7 +7,10 @@ using System.Net.Mime;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using BepInEx;
+using BepInEx.Bootstrap;
 using BepInEx.Logging;
+using BepInEx.Unity;
+using BepInEx.Unity.Bootstrap;
 using Characters.Controllers;
 using Data;
 using HarmonyLib;
@@ -34,7 +37,7 @@ namespace Skul.Mod
             Helper.Logger = Logger;
             
             // Plugin startup logic
-            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+            Logger.LogInfo("Plugin " + PluginInfo.PLUGIN_GUID + " is loaded!");
             
             // Execute all patches
             _harmony = new Harmony("Skul.Mod");
