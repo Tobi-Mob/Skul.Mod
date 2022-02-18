@@ -9,16 +9,16 @@ Using [BepInEx](https://github.com/BepInEx/BepInEx) as modding framework
 Features
 ===
 
-- TurboButtonMode for basic attacks.
+- TurboButtonMode for basic attacks (F2 Key).
    - Holding down the attack button attacks as fast as possible.
-   - Activate/Deactivate with F2.
-- Skull drops scale with current chapter.
+- Skull drops scale with current chapter (F3 Key).
    - Later chapters always drop higher rarity skulls.
    - Awakened versions of skulls can drop.
+- Modify gates (F4 Key)
+   - Always spawn a Skull-Reward and a Item-Reward gate, if possible.
+   - No broken gates will be spawned, if avoidable.
+- Spawn DarkQuartz to unlock upgrades (F5 Key).
 - Item drops configurable to drop a higher quality item every N drops.
-- Always spawn a Skull-Reward and a Item-Reward gate, if possible.
-- No broken gates will be spawned, if avoidable.
-- Infinite DarkQuartz to unlock upgrades. 
 
 Compability
 ===

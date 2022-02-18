@@ -11,6 +11,7 @@ namespace Skul.Mod
 {
     public static class PathPatch
     { 
+        public static bool Enabled { get; private set; } = true;
         private static ManualLogSource Logger => Helper.Logger;
         private static LevelManager levelManager => Helper.LevelManager;
         private static FloatingTextSpawner textSpawner => Helper.TextSpawner;
@@ -22,6 +23,9 @@ namespace Skul.Mod
             StageInfo __instance,
             (PathNode type1, PathNode type2)[] ____path)
         {
+            if (!Enabled)
+                return;
+            
             Logger.LogInfo("GeneratePath invoked");
             
             Logger.LogInfo($"Got " + ____path.Length + " paths");
@@ -55,6 +59,17 @@ namespace Skul.Mod
                     Logger.LogError(e.Message);
                 }
             }
+        }
+        #endregion
+
+        #region ToggleEnabled
+        public static void ToggleEnabled()
+        {
+            Enabled = !Enabled;
+            
+            string text = Enabled ? "enabled" : "disabled";
+
+            Helper.TextSpawner.SpawnBuff($"Path modifications {text}", Helper.Player.transform.position);
         }
         #endregion
     }

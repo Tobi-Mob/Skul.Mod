@@ -10,7 +10,8 @@ using Singletons;
 namespace Skul.Mod
 {
     public static class DropRatePatch
-    { 
+    {
+        public static bool Enabled { get; private set; } = true;
         private static ManualLogSource Logger => Helper.Logger;
         private static LevelManager levelManager => Helper.LevelManager;
         private static FloatingTextSpawner textSpawner => Helper.TextSpawner;
@@ -50,6 +51,9 @@ namespace Skul.Mod
             EnumArray<Rarity, Resource.WeaponReference[]> ____weapons, 
             List<Characters.Gear.Gear> ____weaponInstances)
         {
+            if (!Enabled)
+                return true;
+            
             var weapons = ____weapons;
             
             if (SkullsScaleWithChapter)
@@ -128,6 +132,8 @@ namespace Skul.Mod
             EnumArray<Rarity, Resource.ItemInfo[]> ____items, 
             List<Characters.Gear.Gear> ____itemInstances)
         {
+            if (!Enabled)
+                return true;
             
             if (ItemUpgradeEveryXDrops != -1)
             {
@@ -261,6 +267,17 @@ namespace Skul.Mod
             Logger.LogInfo("Chapter type '" + chapterType + "' to rarity '" + rarity + "'");
 
             return rarity;
+        }
+        #endregion
+        
+        #region ToggleEnabled
+        public static void ToggleEnabled()
+        {
+            Enabled = !Enabled;
+            
+            string text = Enabled ? "enabled" : "disabled";
+
+            Helper.TextSpawner.SpawnBuff($"Item drop modifications {text}", Helper.Player.transform.position);
         }
         #endregion
     }

@@ -56,9 +56,21 @@ namespace Skul.Mod
             if (!Helper.IsInGame)
                 return;
 
+            // print some infos
             if(Input.GetKeyDown(KeyCode.F1))
             {
-                Helper.TextSpawner.SpawnBuff("Mod running!", levelManager.player.transform.position);
+                Vector3 v = levelManager.player.transform.position;
+                float offset = 0.4f;
+                
+                Helper.TextSpawner.SpawnBuff("   Mod running!   ", v);
+                v += Vector3.downVector * offset;
+                Helper.TextSpawner.SpawnBuff("F2: Toggle turbo attack", v);
+                v += Vector3.downVector * offset;
+                Helper.TextSpawner.SpawnBuff("F3: Toggle item modifications", v);
+                v += Vector3.downVector * offset;
+                Helper.TextSpawner.SpawnBuff("F4: Toggle path modifications", v);
+                v += Vector3.downVector * offset;
+                Helper.TextSpawner.SpawnBuff("F5: Get some dark quartz", v);
             }
 
             if (Input.GetKeyDown(KeyCode.F2))
@@ -66,9 +78,25 @@ namespace Skul.Mod
                 TurboButtonMode.ToggleTurbo();
             }
 
-            // Lock Quartz high enough to unlock everything
-            if(GameData.Currency.darkQuartz != null)
-                GameData.Currency.darkQuartz.balance = 100000;
+            if (Input.GetKeyDown(KeyCode.F3))
+            {
+                DropRatePatch.ToggleEnabled();
+            }
+            
+            if (Input.GetKeyDown(KeyCode.F4))
+            {
+                PathPatch.ToggleEnabled();
+            }
+            
+            // Get some Quartz
+            if (Input.GetKeyDown(KeyCode.F5))
+            {
+                if (GameData.Currency.darkQuartz != null)
+                {
+                    Helper.TextSpawner.SpawnBuff("Got some quartz", levelManager.player.transform.position);
+                    GameData.Currency.darkQuartz.balance += 10000;
+                }
+            }
         }
 
 
