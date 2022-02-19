@@ -13,7 +13,7 @@
   
   <PropertyGroup>
     <!-- Enter the path to your Skul Installation here -->
-    <SkulDirectory Condition="'$(OS)' == 'Unix'">/home/tobi/.steam/debian-installation/steamapps/common/Skul/</SkulDirectory>
+    <SkulDirectory Condition="'$(OS)' == 'Unix'">$(HOME)/.steam/debian-installation/steamapps/common/Skul/</SkulDirectory>
     <SkulDirectory Condition="'$(OS)' == 'Windows_NT'">C:\Program Files\Steam\steamapps\common\Skul\</SkulDirectory>
   </PropertyGroup>
   
