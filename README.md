@@ -23,7 +23,7 @@ Features
 Compability
 ===
 - BepInEx Version 6.0.0.549
-- Skul Version 1.5.2
+- Skul Version 1.4.1
 - Skul Unity Version 2020.1.17
 
 Installation
