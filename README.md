@@ -22,9 +22,9 @@ Features
 
 Compability
 ===
-- BepInEx Version 6.0.0.549
 - Skul Version 1.5.2
 - Skul Unity Version 2020.3.22f1
+- BepInEx Version 6.0.0.549
 
 Installation
 ===
@@ -36,13 +36,13 @@ Installation
 
 * Extract [BepInEx 6.0.0.549](https://builds.bepinex.dev/projects/bepinex_be/549/BepInEx_UnityMono_x64_f2c0e0f_6.0.0-be.549.zip) into `$(SkulDirectory)`
 
-* Extract [PlugIn.zip](https://github.com/Tobi-Mob/Skul.Mod/files/8066709/PlugIn.zip) into `$(SkulDirectory)`
+* Extract [Skul.Mod.zip](https://github.com/Tobi-Mob/Skul.Mod/releases) into `$(SkulDirectory)`
 
 * Extract [Unstripped Unity files](https://unity.bepinex.dev/libraries/2020.3.22.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
 
 * Download [UnitySetup64-2020.3.22f1.exe](https://download.unity3d.com/download_unity/e1a7f79fd887/Windows64EditorInstaller/UnitySetup64-2020.3.22f1.exe)
 
-* Install Unity and copy `$(UnityDirectory)/Editor/Data/MonoBleedingEdge/lib/mono/4.5` into `$(SkulDirectory)\Skul_Data\Managed\`.
+* Install Unity and copy `$(UnityDirectory)\Editor\Data\MonoBleedingEdge\lib\mono\4.5` into `$(SkulDirectory)\Skul_Data\Managed\`.
 
 ## Full Installation Guide
 
