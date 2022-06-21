@@ -32,13 +32,14 @@ Installation
 
 ## TLDR Installation
 
-`$(SkulDirectory)` would be the folder where the Skul.exe is. For Windows it usually is: `C:\Program Files (x86)\Steam\steamapps\common\Skul` or something like that.
+`$(SkulDirectory)` would be the folder where the Skul.exe is. 
+For Windows it usually is: `C:\Program Files (x86)\Steam\steamapps\common\Skul` or something like that.
 
 * Extract [BepInEx 6.0.0.549](https://builds.bepinex.dev/projects/bepinex_be/549/BepInEx_UnityMono_x64_f2c0e0f_6.0.0-be.549.zip) into `$(SkulDirectory)`
 
 * Extract [Skul.Mod.zip](https://github.com/Tobi-Mob/Skul.Mod/releases) into `$(SkulDirectory)`
 
-* Extract [Unstripped Unity files](https://unity.bepinex.dev/libraries/2020.3.22.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
+* Extract [Unstripped Unity 2020.3.22 files](https://unity.bepinex.dev/libraries/2020.3.22.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
 
 * Download [UnitySetup64-2020.3.22f1.exe](https://download.unity3d.com/download_unity/e1a7f79fd887/Windows64EditorInstaller/UnitySetup64-2020.3.22f1.exe)
 
