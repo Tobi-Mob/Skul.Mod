@@ -22,9 +22,9 @@ Features
 
 Compability
 ===
+- Skul Version 1.5.2
+- Skul Unity Version 2020.3.22f1
 - BepInEx Version 6.0.0.549
-- Skul Version 1.4.1
-- Skul Unity Version 2020.1.17
 
 Installation
 ===
@@ -32,17 +32,18 @@ Installation
 
 ## TLDR Installation
 
-`$(SkulDirectory)` would be the folder where the Skul.exe is. For Windows it usually is: `C:\Program Files (x86)\Steam\steamapps\common\Skul` or something like that.
+`$(SkulDirectory)` would be the folder where the Skul.exe is. 
+For Windows it usually is: `C:\Program Files (x86)\Steam\steamapps\common\Skul` or something like that.
 
 * Extract [BepInEx 6.0.0.549](https://builds.bepinex.dev/projects/bepinex_be/549/BepInEx_UnityMono_x64_f2c0e0f_6.0.0-be.549.zip) into `$(SkulDirectory)`
 
-* Extract [PlugIn.zip](https://github.com/Tobi-Mob/Skul.Mod/files/8066709/PlugIn.zip) into `$(SkulDirectory)`
+* Extract [Skul.Mod.zip](https://github.com/Tobi-Mob/Skul.Mod/releases) into `$(SkulDirectory)`
 
-* Extract [Unstripped Unity files](https://unity.bepinex.dev/libraries/2020.1.17.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
+* Extract [Unstripped Unity 2020.3.22 files](https://unity.bepinex.dev/libraries/2020.3.22.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
 
-* Download [UnitySetup64-2020.1.17f1.exe](https://download.unity3d.com/download_unity/9957aee8edc2/Windows64EditorInstaller/UnitySetup64-2020.1.17f1.exe)
-Rename it to `setup.zip` and open it (if that does not work, try 7-zip)
-Extract the content of `Editor\Data\MonoBleedingEdge\lib\mono\4.5\` into `$(SkulDirectory)\Skul_Data\Managed\`
+* Download [UnitySetup64-2020.3.22f1.exe](https://download.unity3d.com/download_unity/e1a7f79fd887/Windows64EditorInstaller/UnitySetup64-2020.3.22f1.exe)
+
+* Install Unity and copy `$(UnityDirectory)\Editor\Data\MonoBleedingEdge\lib\mono\4.5` into `$(SkulDirectory)\Skul_Data\Managed\`.
 
 ## Full Installation Guide
 
@@ -79,9 +80,9 @@ The `Managed` folder can be backed up in case something goes wrong. Alternativel
 Long Description: [Guide by ghorsington](https://hackmd.io/@ghorsington/rJuLdZTzK)
 
 Short Description:
-- download https://unity.bepinex.dev/libraries/2020.1.17.zip and extract the content into `$(SkulDirectory)\Skul_Data\Managed\`
-- go to the [Unity Download Archives](https://unity3d.com/get-unity/download/archive) and download the Unity [Editor Version 2020.1.17](https://download.unity3d.com/download_unity/9957aee8edc2/Windows64EditorInstaller/UnitySetup64-2020.1.17f1.exe) (Linux users should download the Windows Version)
-- open the downloaded exe file with [7-zip](https://www.7-zip.org/) and extract `Editor/Data/MonoBleedingEdge/lib/mono/4.5` into `$(SkulDirectory)\Skul_Data\Managed\`. To extract without the 7-Zip GUI: `7z x UnitySetup64-2020.1.17f1.exe` 
+- download https://unity.bepinex.dev/libraries/2020.3.22.zip and extract the content into `$(SkulDirectory)\Skul_Data\Managed\`
+- go to the [Unity Download Archives](https://unity3d.com/get-unity/download/archive) and download the Unity [UnitySetup64-2020.3.22f1.exe](https://download.unity3d.com/download_unity/e1a7f79fd887/Windows64EditorInstaller/UnitySetup64-2020.3.22f1.exe) (Linux users should download the Windows Version)
+- Install the Unity Editor and copy `$(UnityDirectory)/Editor/Data/MonoBleedingEdge/lib/mono/4.5` into `$(SkulDirectory)\Skul_Data\Managed\`.
 
 ### Run the game
 
