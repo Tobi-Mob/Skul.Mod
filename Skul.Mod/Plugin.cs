@@ -61,15 +61,15 @@ namespace Skul.Mod
             {
                 Vector3 v = levelManager.player.transform.position;
                 float offset = 0.4f;
-                
-                Helper.TextSpawner.SpawnBuff("   Mod running!   ", v);
-                v += Vector3.downVector * offset;
+                 
+                Helper.TextSpawner.SpawnBuff("   Mod running   ", v);
+                v += Vector3.down * offset;
                 Helper.TextSpawner.SpawnBuff("F2: Toggle turbo attack", v);
-                v += Vector3.downVector * offset;
+                v += Vector3.down * offset;
                 Helper.TextSpawner.SpawnBuff("F3: Toggle item modifications", v);
-                v += Vector3.downVector * offset;
+                v += Vector3.down * offset;
                 Helper.TextSpawner.SpawnBuff("F4: Toggle path modifications", v);
-                v += Vector3.downVector * offset;
+                v += Vector3.down * offset;
                 Helper.TextSpawner.SpawnBuff("F5: Get some dark quartz", v);
             }
 
