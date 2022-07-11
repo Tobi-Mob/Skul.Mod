@@ -25,7 +25,7 @@ namespace Skul.Mod
         /// <summary>
         /// Indicates if Turbo-Mode is currently active
         /// </summary>
-        public static bool IsTurboActive { get; private set; }
+        public static bool IsTurboActive { get; private set; } = true;
 
         /// <summary>
         /// Toggles Turbo Mode.
@@ -75,7 +75,7 @@ namespace Skul.Mod
             if (SetTurboCoroutineHandle == null)
             {
                 Helper.Logger.LogInfo("Turbo-Button coroutine starting");
-                anyObject.StartCoroutine(SetTurboCoroutine());
+                SetTurboCoroutineHandle = anyObject.StartCoroutine(SetTurboCoroutine());
             }
         }
 
