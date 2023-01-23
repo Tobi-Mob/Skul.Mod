@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,7 +19,6 @@ using Level;
 using MonoMod.RuntimeDetour;
 using Services;
 using Singletons;
-using Steamworks;
 using UI.TestingTool;
 using UnityEngine;
 using Action = Characters.Actions.Action;
