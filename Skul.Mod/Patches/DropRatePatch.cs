@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BepInEx.Logging;
+using GameResources;
 using HarmonyLib;
 using Level;
 using Services;
@@ -44,11 +45,11 @@ namespace Skul.Mod
         [HarmonyPatch(typeof(GearManager), "GetWeaponToTake", new Type[]{typeof(Random), typeof(Rarity)})]
         [HarmonyPrefix]
         static bool GetWeaponToTakePrefix(
-            ref Resource.WeaponReference __result, 
+            ref WeaponReference __result, 
             GearManager __instance, 
             Random random,
             Rarity rarity, 
-            EnumArray<Rarity, Resource.WeaponReference[]> ____weapons, 
+            EnumArray<Rarity, WeaponReference[]> ____weapons, 
             List<Characters.Gear.Gear> ____weaponInstances)
         {
             if (!Enabled)
@@ -62,7 +63,7 @@ namespace Skul.Mod
             Logger.LogInfo("GetWeaponToTakePrefix for rarity " + rarity);
             
             // Get all weapons up to the requested rarity
-            IEnumerable<Resource.WeaponReference> possibleDrops = weapons[Rarity.Common];
+            IEnumerable<WeaponReference> possibleDrops = weapons[Rarity.Common];
 
             if (rarity >= Rarity.Rare)
                 possibleDrops = possibleDrops.Concat(weapons[Rarity.Rare]);
@@ -82,7 +83,7 @@ namespace Skul.Mod
                 possibleDrops = possibleDrops.Where(item => !equipped.Contains(item.name));
             }
 
-            List<Resource.WeaponReference> list = possibleDrops.ToList();
+            List<WeaponReference> list = possibleDrops.ToList();
 
             if (list.Count > 0)
             {
@@ -92,10 +93,13 @@ namespace Skul.Mod
                 while (__result.rarity < rarity)
                 {
                     Logger.LogInfo("Rarity to low. Upgrading");
-                    
+
                     // Load the weapon to find out its upgrade.
                     // TODO: possible without the load?
-                    var realWeapon = __result.Load();
+                    var request = __result.LoadAsync();
+                    request.WaitForCompletion();
+
+                    var realWeapon = request.asset;
 
                     if (realWeapon.upgradable)
                     {
@@ -125,11 +129,11 @@ namespace Skul.Mod
         [HarmonyPatch(typeof(GearManager), "GetItemToTake", new Type[]{typeof(Random), typeof(Rarity)})]
         [HarmonyPrefix]
         static bool GetItemToTakePrefix(
-            ref Resource.ItemInfo __result, 
+            ref ItemReference __result, 
             GearManager __instance, 
             Random random,
             Rarity rarity, 
-            EnumArray<Rarity, Resource.ItemInfo[]> ____items, 
+            EnumArray<Rarity, ItemReference[]> ____items, 
             List<Characters.Gear.Gear> ____itemInstances)
         {
             if (!Enabled)
@@ -165,7 +169,7 @@ namespace Skul.Mod
 
             var allItems = ____items;
             
-            IEnumerable<Resource.ItemInfo> possibleDrops = allItems[rarity];
+            IEnumerable<ItemReference> possibleDrops = allItems[rarity];
 
             // all unlocked/obtainable items
             possibleDrops = possibleDrops.Where(w => w.unlocked && w.obtainable);
@@ -177,7 +181,7 @@ namespace Skul.Mod
                 possibleDrops = possibleDrops.Where(item => !equipped.Contains(item.name));
             }
 
-            List<Resource.ItemInfo> itemInfos = possibleDrops.ToList();
+            List<ItemReference> itemInfos = possibleDrops.ToList();
 
             if (itemInfos.Count > 0)
             {

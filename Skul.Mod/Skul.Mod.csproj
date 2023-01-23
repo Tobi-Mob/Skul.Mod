@@ -4,28 +4,37 @@
     <TargetFramework>net472</TargetFramework>
     <PackageId>Skul.Mod</PackageId>
     <Description>Tobi-Mob Skul Mod</Description>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>9.0</LangVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>Harmony003</NoWarn>
   </PropertyGroup>
-  
+
   <PropertyGroup>
-    <!-- Enter the path to your Skul Installation here -->
-    <SkulDirectory Condition="'$(OS)' == 'Unix'">$(HOME)/.steam/debian-installation/steamapps/common/Skul/</SkulDirectory>
-    <SkulDirectory Condition="'$(OS)' == 'Windows_NT'">C:\Program Files\Steam\steamapps\common\Skul\</SkulDirectory>
+    <RestoreSources>$(RestoreSources);https://api.nuget.org/v3/index.json;https://nuget.bepinex.dev/v3/index.json</RestoreSources>
   </PropertyGroup>
   
-  <PropertyGroup>
+  <!-- Enter the path to your Skul Installation here -->
+  <PropertyGroup Condition="'$(OS)' == 'Unix'">
+    <SkulDirectory>$(HOME)/.steam/debian-installation/steamapps/common/Skul/</SkulDirectory>
     <OutputPath>$(SkulDirectory)BepInEx/plugins/</OutputPath>
+    <RestoreSources>$(RestoreSources);../Packages/</RestoreSources>
+  </PropertyGroup>
+
+  <!-- Enter the path to your Skul Installation here -->
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+    <SkulDirectory>C:\Program Files\Steam\steamapps\common\Skul\</SkulDirectory>
+    <SkulDirectory Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\Skul\')">C:\Program Files (x86)\Steam\steamapps\common\Skul\</SkulDirectory>
+    <OutputPath>$(SkulDirectory)BepInEx\plugins\</OutputPath>
+    <RestoreSources>$(RestoreSources);..\Packages\</RestoreSources>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Unity" Version="6.0.0-*" IncludeAssets="compile" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
-	  <PackageReference Include="UnityEngine.Modules" Version="2020.3.22" IncludeAssets="compile" />
+	  <PackageReference Include="UnityEngine.Modules" Version="2020.3.24" IncludeAssets="compile" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
@@ -47,9 +56,6 @@
     </Reference>
     <Reference Include="Plugins.Singletons, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>$(SkulDirectory)Skul_Data/Managed/Plugins.Singletons.dll</HintPath>
-    </Reference>
-    <Reference Include="Steamworks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>$(SkulDirectory)Skul_Data/Managed/Steamworks.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

@@ -22,8 +22,8 @@ Features
 
 Compability
 ===
-- Skul Version 1.5.2
-- Skul Unity Version 2020.3.22f1
+- Skul Version 1.7.1
+- Skul Unity Version 2020.3.34
 - BepInEx Version 6.0.0.549
 
 Installation
@@ -32,9 +32,9 @@ Installation
 `$(SkulDirectory)` would be the folder where the Skul.exe is. 
 For Windows it usually is: `C:\Program Files (x86)\Steam\steamapps\common\Skul` or something like that.
 
-* Extract [Unstripped Unity files 2020.3.22 ](https://unity.bepinex.dev/libraries/2020.3.22.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
+* Extract [Unstripped Unity files 2020.3.34](https://unity.bepinex.dev/libraries/2020.3.34.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
 
-* Extract [Unstripped corelibs 2020.3.22](https://unity.bepinex.dev/corlibs/2020.3.22.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
+* Extract [Unstripped corelibs 2020.3.34](https://unity.bepinex.dev/corlibs/2020.3.34.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
 
 * Extract [BepInEx 6.0.0.549](https://builds.bepinex.dev/projects/bepinex_be/549/BepInEx_UnityMono_x64_f2c0e0f_6.0.0-be.549.zip) into `$(SkulDirectory)`
 
