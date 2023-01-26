@@ -32,7 +32,7 @@
 
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
-    <PackageReference Include="BepInEx.Unity" Version="6.0.0-*" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" IncludeAssets="compile" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
 	  <PackageReference Include="UnityEngine.Modules" Version="2020.3.24" IncludeAssets="compile" />
   </ItemGroup>
