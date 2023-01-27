@@ -42,7 +42,7 @@ For Windows it usually is: `C:\Program Files (x86)\Steam\steamapps\common\Skul` 
 
 * Extract [Skul.Mod.zip](https://github.com/Tobi-Mob/Skul.Mod/releases) into `$(SkulDirectory)`
 
-* Run the game via Steam. If the mod is running correclty, pressing F1 while in the game will display a message above the player character.
+* Run the game via Steam. If the mod is running correctly, pressing F1 while in the game will display a message above the player character.
 
 There are more detailed Instructions available here: [Full Installation Guide](Docs/Full-Installation-Guide.md)
 
