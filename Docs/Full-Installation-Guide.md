@@ -7,11 +7,10 @@ This is a more detailed description of things I did to get the mod working. If y
 Long general installation guide for BepInEx can be found [here](https://docs.bepinex.dev/master/articles/user_guide/installation/index.html).  
 Shorter description for Skul below:
 
-At the time of writing, BepInEx 6 has no stable release.  
-The current builds can be found here: [BepisBuilds](https://builds.bepis.io/projects/bepinex_be).  
+The current builds can be found here: [BepInEx 5.4.21](https://github.com/BepInEx/BepInEx/releases/tag/v5.4.21).  
 
-For Windows use: BepInEx_UnityMono_x64  
-For Linux use: BepInEx_UnityMono_unix  
+For Windows use: BepInEx_x64
+For Linux use: BepInEx_unix
 
 Extract the content of the archive into the Root folder of your Skul Installation. So that the Root folder of the game contains a "BepInEx" folder
 
@@ -36,8 +35,8 @@ The `Managed` folder can be backed up in case something goes wrong. Alternativel
 Long Description: [Guide by ghorsington](https://hackmd.io/@ghorsington/rJuLdZTzK)
 
 Short Description:
-- download https://unity.bepinex.dev/libraries/2020.3.22.zip and extract the content into `$(SkulDirectory)\Skul_Data\Managed\`
-- go to the [Unity Download Archives](https://unity3d.com/get-unity/download/archive) and download the Unity [UnitySetup64-2020.3.22f1.exe](https://download.unity3d.com/download_unity/e1a7f79fd887/Windows64EditorInstaller/UnitySetup64-2020.3.22f1.exe) (Linux users should download the Windows Version)
+- download https://unity.bepinex.dev/libraries/2020.3.34.zip and extract the content into `$(SkulDirectory)\Skul_Data\Managed\`
+- go to the [Unity Download Archives](https://unity3d.com/get-unity/download/archive) and download the Unity [UnitySetup64-2020.3.34.exe](https://download.unity3d.com/download_unity/e1a7f79fd887/Windows64EditorInstaller/UnitySetup64-2020.3.34.exe) (Linux users should download the Windows Version)
 - Install the Unity Editor and copy `$(UnityDirectory)/Editor/Data/MonoBleedingEdge/lib/mono/4.5` into `$(SkulDirectory)\Skul_Data\Managed\`.
 
 ## Run the game
