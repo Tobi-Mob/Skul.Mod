@@ -9,8 +9,6 @@ using System.Security.Cryptography.X509Certificates;
 using BepInEx;
 using BepInEx.Bootstrap;
 using BepInEx.Logging;
-using BepInEx.Unity;
-using BepInEx.Unity.Bootstrap;
 using Characters.Controllers;
 using Data;
 using HarmonyLib;

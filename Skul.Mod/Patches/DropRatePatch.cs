@@ -255,15 +255,19 @@ namespace Skul.Mod
             switch (chapterType)
             {
                 case Chapter.Type.Chapter2:
+                case Chapter.Type.HardmodeChapter2:
                     rarity = Rarity.Rare;
                     break;
                 case Chapter.Type.Chapter3:
+                case Chapter.Type.HardmodeChapter3:
                     rarity = Rarity.Unique;
                     break;
                 case Chapter.Type.Chapter4:
+                case Chapter.Type.HardmodeChapter4:
                     rarity = Rarity.Legendary;
                     break;
                 case Chapter.Type.Chapter5:
+                case Chapter.Type.HardmodeChapter5:
                     rarity = Rarity.Legendary;
                     break;
             }

@@ -4,7 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <PackageId>Skul.Mod</PackageId>
     <Description>Tobi-Mob Skul Mod</Description>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>9.0</LangVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -18,7 +18,7 @@
   <!-- Enter the path to your Skul Installation here -->
   <PropertyGroup Condition="'$(OS)' == 'Unix'">
     <SkulDirectory>$(HOME)/.steam/debian-installation/steamapps/common/Skul/</SkulDirectory>
-    <OutputPath>$(SkulDirectory)BepInEx/plugins/</OutputPath>
+    <OutputPath>$(SkulDirectory)BepInEx/plugins/Tobi.Mob-Skul.Mod/</OutputPath>
     <RestoreSources>$(RestoreSources);../Packages/</RestoreSources>
   </PropertyGroup>
 
@@ -26,13 +26,13 @@
   <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
     <SkulDirectory>C:\Program Files\Steam\steamapps\common\Skul\</SkulDirectory>
     <SkulDirectory Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\Skul\')">C:\Program Files (x86)\Steam\steamapps\common\Skul\</SkulDirectory>
-    <OutputPath>$(SkulDirectory)BepInEx\plugins\</OutputPath>
+    <OutputPath>$(SkulDirectory)BepInEx\plugins\Tobi.Mob-Skul.Mod\</OutputPath>
     <RestoreSources>$(RestoreSources);..\Packages\</RestoreSources>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
-    <PackageReference Include="BepInEx.Unity" Version="6.0.0-*" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" IncludeAssets="compile" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
 	  <PackageReference Include="UnityEngine.Modules" Version="2020.3.24" IncludeAssets="compile" />
   </ItemGroup>

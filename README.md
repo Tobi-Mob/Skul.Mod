@@ -24,7 +24,7 @@ Compability
 ===
 - Skul Version 1.7.1
 - Skul Unity Version 2020.3.34
-- BepInEx Version 6.0.0.549
+- BepInEx Version 5.4.21
 
 Installation
 ===
@@ -36,11 +36,13 @@ For Windows it usually is: `C:\Program Files (x86)\Steam\steamapps\common\Skul` 
 
 * Extract [Unstripped corelibs 2020.3.34](https://unity.bepinex.dev/corlibs/2020.3.34.zip) into `$(SkulDirectory)\Skul_Data\Managed\`
 
-* Extract [BepInEx 6.0.0.549](https://builds.bepinex.dev/projects/bepinex_be/549/BepInEx_UnityMono_x64_f2c0e0f_6.0.0-be.549.zip) into `$(SkulDirectory)`
+* Extract [BepInEx 5.4.21](https://github.com/BepInEx/BepInEx/releases/tag/v5.4.21) into `$(SkulDirectory)`
+   * for Windows: [x64](https://github.com/BepInEx/BepInEx/releases/download/v5.4.21/BepInEx_x64_5.4.21.0.zip)
+   * for Linux: [unix](https://github.com/BepInEx/BepInEx/releases/download/v5.4.21/BepInEx_unix_5.4.21.0.zip)
 
 * Extract [Skul.Mod.zip](https://github.com/Tobi-Mob/Skul.Mod/releases) into `$(SkulDirectory)`
 
-* Run the game via Steam. If the mod is running correclty, pressing F1 while in the game will display a message above the player character.
+* Run the game via Steam. If the mod is running correctly, pressing F1 while in the game will display a message above the player character.
 
 There are more detailed Instructions available here: [Full Installation Guide](Docs/Full-Installation-Guide.md)
 
